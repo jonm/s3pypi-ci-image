@@ -1,0 +1,25 @@
+resources:
+- name: s3pypi-ci-image
+  type: git
+  source:
+    uri: https://github.com/jonm/s3pypi-ci-image.git
+    branch: master
+
+- name: hub
+  type: docker-image
+  source:
+    email: ((docker-hub-email))
+    username: ((docker-hub-username))
+    password: ((docker-hub-password))
+    repository: jonm33/s3pypi-ci
+
+jobs:
+- name: publish
+  public: true
+  serial: true
+  plan:
+    - get: s3pypi-ci-image
+    - put: hub
+      params:
+        tag_file: s3pypi-ci-image/VERSION
+        tag_as_latest: true
