@@ -19,7 +19,9 @@ jobs:
   serial: true
   plan:
     - get: s3pypi-ci-image
+      trigger: true
     - put: hub
       params:
+        build: s3pypi-ci-image
         tag_file: s3pypi-ci-image/VERSION
         tag_as_latest: true
