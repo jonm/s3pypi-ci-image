@@ -23,5 +23,7 @@ jobs:
     - put: hub
       params:
         build: s3pypi-ci-image
+        cache: true
         tag_file: s3pypi-ci-image/VERSION
         tag_as_latest: true
+        skip_download: true
