@@ -1,12 +1,14 @@
 resources:
 - name: s3pypi-ci-image
   type: git
+  check_every: 24h
   source:
     uri: https://github.com/jonm/s3pypi-ci-image.git
     branch: master
 
 - name: hub
   type: docker-image
+  check_every: 24h
   source:
     email: ((docker-hub-email))
     username: ((docker-hub-username))
