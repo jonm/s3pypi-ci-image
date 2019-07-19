@@ -1,4 +1,4 @@
-FROM alpine:3.9.4
+FROM snapkitchen/concourse-terraform:0.12.5
 
-RUN apk add python2 py2-pip make zip
+RUN apk add make zip
 RUN pip install awscli
