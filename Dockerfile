@@ -1,4 +1,5 @@
 FROM snapkitchen/concourse-terraform:0.12.5
 
 RUN apk add make zip
-RUN pip install awscli
+RUN pip install awscli term2md
+
